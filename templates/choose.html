@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block head %}
+<!-- Local imports -->
+<!--<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='home.css') }}">-->
+<script type="text/javascript" src="{{ url_for('static', filename='choose.js') }}"></script>
+{% endblock %}
+{% block body %}
+<div class="row m-5">
+    <form method="post" action="/display">
+        <div class="col">
+            <select class="form-control" id="features" name="Features[]" multiple>
+                {% for o in table_headers %}
+                <option value="{{o}}">{{o|capitalize}}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="col">
+            <div class="input-group">
+                <button type="button" value="" class="btn btn-sm btn-primary" id="add">Add >></button>
+            </div>
+            <div class="input-group pt-5">
+                <button type="button" value="" class="btn btn-sm btn-danger" id="remove"><< Remove</button>
+            </div>
+        </div>
+        <div class="col">
+            <select required class="form-control" name="FeatureCodes[]" id="selected_features" multiple="multiple">
+            </select>
+        </div>
+        <button class="btn btn-success" type="submit">Submit</button>
+    </form>
+
+</div>
+{% endblock %}

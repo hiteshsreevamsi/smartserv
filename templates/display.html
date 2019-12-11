@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block head %}
+<!-- Local imports -->
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='display.css') }}">
+<!--<script type="text/javascript" src="{{ url_for('static', filename='choose.js') }}"></script>-->
+{% endblock %}
+{% block body %}
+{{ html|safe }}
+{% endblock %}

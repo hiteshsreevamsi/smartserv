@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block head %}
+<!-- Local imports -->
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='home.css') }}">
+<script type="text/javascript" src="{{ url_for('static', filename='home.js') }}"></script>
+{% endblock %}
+{% block body %}
+<form class="form" action="/parse" method="post" enctype="multipart/form-data">
+    <div class="container m-5 p-5 form-group">
+        <h3>Step 1: Select File</h3>
+        <hr>
+        <input required type="file" name="file" id="file" accept=".csv, .json" class="form-control-file-lg py-2">
+        <hr>
+        <label>Supported types: 'CSV' and 'JSON'</label>
+        <br>
+        <div class="form-group">
+            <label for="sel1">Select file type:</label>
+            <select class="form-control" id="sel1" name="ftype" required>
+                <option value="none" disabled hidden>
+                    Select an Option
+                </option>
+                <option value="CSV">CSV</option>
+                <option value="JSON">JSON</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary mt-5">Submit</button>
+    </div>
+</form>
+{% endblock %}
